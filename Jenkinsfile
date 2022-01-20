@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/umarmaan882/nodejs/jenkinsfile.git'
+        git 'https://github.com/umarmaan882/nodejs.git'
       }
     }
 
