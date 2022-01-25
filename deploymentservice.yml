@@ -5,20 +5,20 @@ kind: Deployment
 metadata:
   name: centos-deployment
   labels:
-    app: centos
+    app: centos/httpd
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: centos
+      app: centos/httpd
   template:
     metadata:
       labels:
-        app: centos 
+        app: centos/httpd 
     spec:
       containers:
-      - name: centoscontainer
-        image: naqoda/centos-apache-php
+      - name: centcontainer
+        image: centos/httpd
         ports:
         - containerPort: 80
         
@@ -31,7 +31,7 @@ metadata:
   name: nodeapp-service
 spec:
   selector:
-    app: centos 
+    app: centos/httpd 
   type: LoadBalancer
   ports:
   - protocol: TCP
