@@ -3,24 +3,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
+  name: centos-deployment
   labels:
-    app: nodeapp
+    app: centos
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: centos
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: centos 
     spec:
       containers:
-      - name: nodeserver
-        image: thetips4you/nodeapp:latest
+      - name: centoscontainer
+        image: naqoda/centos-apache-php
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         
         
 ---
@@ -31,10 +31,10 @@ metadata:
   name: nodeapp-service
 spec:
   selector:
-    app: nodeapp 
+    app: centos 
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 5000
-    targetPort: 3000
+    port: 80
+    targetPort: 80
     nodePort: 31110
