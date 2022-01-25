@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    dockerimagename = "naqoda/centos-apache-php"
+    dockerimagename = "centos/httpd"
     dockerImage = ""
   }
 
